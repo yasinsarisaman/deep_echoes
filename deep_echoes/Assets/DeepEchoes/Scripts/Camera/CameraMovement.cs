@@ -7,23 +7,17 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private GameObject _player; 
     [SerializeField] private float _camSpeed;
+    private static readonly Matrix4x4 _matrice = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
     
     private float offsetX = 0;
 
 
     void Update()
     {
-        // if (_player.transform.position.x > _cameraThresholdX || _player.transform.position.x < (-1*_cameraThresholdX))
-        // {
-        //     offsetX += _cameraThresholdX - _player.transform.position.x;
-        // }
-        
+        /* TODO remove copying every time  */
+        var skewedInput = _matrice.MultiplyPoint3x4(_player.transform.localPosition);
+        transform.localPosition = new Vector3(-1 * skewedInput.z, 0, -30);
+
     }
 
-    private void LateUpdate()
-    {        
-        transform.localPosition = new Vector3(_player.transform.position.x, 0, -30);
-        // TODO add interpolation with speed - YASIN...
-        // TODO fix cam movement 
-    }
 }
