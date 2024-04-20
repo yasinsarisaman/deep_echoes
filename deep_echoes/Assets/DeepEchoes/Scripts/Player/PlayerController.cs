@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rbody;
     [SerializeField] private float speed;
     [SerializeField] private float turnSpeed;
+    [SerializeField] private Animator animator;
+    
     private Vector3 movementInput;
+    private static readonly int _isWalking = Animator.StringToHash("isWalking");
 
     private void Update()
     {
@@ -45,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        rbody.MovePosition(transform.position + transform.forward * (movementInput.magnitude * speed * Time.deltaTime));
+        var movementInputMagnitude = movementInput.magnitude;
+        animator.SetBool(_isWalking, movementInputMagnitude > 0);
+        rbody.MovePosition(transform.position + transform.forward * (movementInputMagnitude * speed * Time.deltaTime));
     }
 }

@@ -1,13 +1,23 @@
+using System;
 using DeepEchoes.Scripts.Events;
 using TMPro;
 using UnityEngine;
 
 namespace DeepEchoes.Scripts.Mangers
 {
-    public class HealthManager : MonoBehaviour
+    public class PlayerHealthManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI remainingHealthText;
-        private int _remainingHealth = 100; 
+        [SerializeField] private int startHealth = 100;
+        
+        private int _currentHealth;
+
+        private void Start()
+        {
+            _currentHealth = startHealth;
+            remainingHealthText.text = "Health: " + _currentHealth;
+        }
+
         private void OnEnable()
         {
             EventBus<ApplyDamageEvent>.AddListener(OnApplyDamageEvent);
@@ -20,8 +30,8 @@ namespace DeepEchoes.Scripts.Mangers
 
         private void OnApplyDamageEvent(object sender, ApplyDamageEvent e)
         {
-            _remainingHealth -= e.Value;
-            remainingHealthText.text = _remainingHealth.ToString("000");
+            _currentHealth -= e.Value;
+            remainingHealthText.text = "Health: " + _currentHealth;
         }
     }
 }
