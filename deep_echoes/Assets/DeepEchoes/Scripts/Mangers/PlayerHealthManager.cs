@@ -32,8 +32,14 @@ namespace DeepEchoes.Scripts.Mangers
 
         private void OnApplyDamageEvent(object sender, ApplyDamageEvent e)
         {
+
             _currentHealth -= e.Value;
             _healthBar.value = (float)_currentHealth/100;
+
+            if (_currentHealth <= 0)
+            {
+                EventBus<LevelCompletedEvent>.Emit(this, new LevelCompletedEvent(CompletionStates.CompletionState_LOSE_BY_HEALTH));
+            }
         }
     }
 }

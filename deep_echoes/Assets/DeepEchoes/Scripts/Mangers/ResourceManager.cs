@@ -8,21 +8,13 @@ namespace DeepEchoes.Scripts.Mangers
     public class ResourceManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI coinText;
-
-        private int goldResource
-        {
-            get => PlayerPrefs.GetInt(goldPrefName, 0);
-            set
-            {
-                PlayerPrefs.SetInt(goldPrefName,value);
-                coinText.text = "Gold: " + value;
-            }
-        }
-        private const string goldPrefName = "goldPref";
+        [SerializeField] private int _requiredWrenchesCount;
+        private int _currentWrenchesCount = 0;
+        
 
         private void Start()
         {
-            goldResource = goldResource;
+            coinText.text = "Wrenches: " + _currentWrenchesCount + " / " + _requiredWrenchesCount;
         }
 
         private void OnEnable()
@@ -37,7 +29,12 @@ namespace DeepEchoes.Scripts.Mangers
 
         private void OnResourceGainEvent(object sender, ResourceGainEvent e)
         {
-            goldResource += e.Value;
+            _currentWrenchesCount++;
+            coinText.text = "Wrenches: " + _currentWrenchesCount + " / " + _requiredWrenchesCount;
+            if (_requiredWrenchesCount <= _currentWrenchesCount)
+            {
+                EventBus<LevelCompletedEvent>.Emit(this, new LevelCompletedEvent(CompletionStates.CompletionState_WIN));
+            }
         }
     }
 }
