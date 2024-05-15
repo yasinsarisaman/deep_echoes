@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: 1
-  moveAmount: 5
+  moveAmount: 4
 --- !u!54 &3660973649990273505
 Rigidbody:
   m_ObjectHideFlags: 0

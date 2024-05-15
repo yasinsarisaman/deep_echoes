@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DeepEchoes.Scripts.Events;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -12,6 +14,22 @@ public class PlayerController : MonoBehaviour
     
     private Vector3 movementInput;
     private static readonly int _isWalking = Animator.StringToHash("isWalking");
+
+    private void OnEnable()
+    {
+        EventBus<ApplyDamageEvent>.AddListener(OnApplyDamageEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBus<ApplyDamageEvent>.AddListener(OnApplyDamageEvent);
+    }
+
+    private void OnApplyDamageEvent(object sender, ApplyDamageEvent e)
+    {
+        transform.DOKill(true);
+        transform.DOPunchScale(Vector3.one*0.3f, 0.1f);
+    }
 
     private void Update()
     {

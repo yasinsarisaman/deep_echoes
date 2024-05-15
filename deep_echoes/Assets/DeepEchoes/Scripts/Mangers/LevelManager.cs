@@ -40,7 +40,11 @@ namespace DeepEchoes.Scripts.Mangers
 
         public void GoNextLevel()
         {
-            if (levelIndexer > (SceneManager.sceneCountInBuildSettings - 1)) { return; }
+            if (levelIndexer > (SceneManager.sceneCountInBuildSettings - 1))
+            {
+                // if last level reload this level
+                RestartLevel();
+            }
             SceneManager.LoadScene(levelIndexer);
         }
 

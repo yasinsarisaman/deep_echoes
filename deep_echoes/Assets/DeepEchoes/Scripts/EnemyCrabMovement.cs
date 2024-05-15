@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyCrabMovement : MonoBehaviour
 {
@@ -16,22 +17,16 @@ public class EnemyCrabMovement : MonoBehaviour
     {
         while (true)
         {
-            transform.DOKill(true);
-            transform.DOMove(transform.position + Vector3.right * moveAmount, moveTime).SetLoops(2,LoopType.Yoyo).SetEase(Ease.Linear);
-            transform.DORotate(Vector3.up * 90f, 0.3f);
-            yield return new WaitForSeconds(moveTime*2+0.5f);
-            transform.DOKill(true);
-            transform.DOMove(transform.position + -Vector3.right * moveAmount, moveTime).SetLoops(2,LoopType.Yoyo).SetEase(Ease.Linear);
-            transform.DORotate(Vector3.up * -90f, 0.3f);
-            yield return new WaitForSeconds(moveTime*2+0.5f);
-            transform.DOKill(true);
-            transform.DOMove(transform.position + Vector3.forward * moveAmount, moveTime).SetLoops(2,LoopType.Yoyo).SetEase(Ease.Linear);
-            transform.DORotate(Vector3.zero, 0.3f);
-            yield return new WaitForSeconds(moveTime*2+0.5f);
-            transform.DOKill(true);
-            transform.DOMove(transform.position + -Vector3.forward * moveAmount, moveTime).SetLoops(2,LoopType.Yoyo).SetEase(Ease.Linear);
-            transform.DORotate(Vector3.up*180f, 0.3f);
-            yield return new WaitForSeconds(moveTime*2+0.5f);
+            yield return new WaitForSeconds(Random.Range(0, 0.5f));
+            var randomDir = Random.Range(0, 4);
+            transform.DORotate( Vector3.up * (90f*randomDir), 0.3f);
+            yield return new WaitForSeconds(0.3f);
+            transform.DOMove(transform.position + transform.forward * moveAmount, moveTime).SetEase(Ease.Linear);
+            yield return new WaitForSeconds(moveTime);
+            transform.DORotate(transform.eulerAngles + Vector3.up * 180f, 0.3f);
+            yield return new WaitForSeconds(0.3f);
+            transform.DOMove(transform.position + transform.forward * moveAmount, moveTime).SetEase(Ease.Linear);
+            yield return new WaitForSeconds(moveTime);
         }
         
     }
