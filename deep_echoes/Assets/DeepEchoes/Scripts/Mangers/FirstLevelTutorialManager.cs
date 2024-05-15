@@ -7,10 +7,16 @@ using UnityEngine;
 public class FirstLevelTutorialManager : MonoBehaviour
 {
     [SerializeField] private LeanWindow firstWindow;
+    private const string tutorialPrefString = "isTutorialCompleted";
+   
 
     private void Start()
     {
-        Invoke(nameof(ShowFirstWindow),4.2f);
+        if (PlayerPrefs.GetInt(tutorialPrefString, 0) == 0)
+        {
+            PlayerPrefs.SetInt(tutorialPrefString,1);
+            Invoke(nameof(ShowFirstWindow),4.2f);
+        }
     }
 
     private void ShowFirstWindow()
