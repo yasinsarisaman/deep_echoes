@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -547,6 +547,42 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2400535098238199282, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098265998474, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_text
+      value: Try Again
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098727130432, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_text
+      value: You Survived !
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098727130432, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_fontSize
+      value: 100.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098794268848, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_text
+      value: You Fail !
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098794268848, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_fontSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098890516047, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098890516047, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535098890516047, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2400535098997329467, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -602,6 +638,46 @@ PrefabInstance:
     - target: {fileID: 2400535099055928491, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
       propertyPath: m_Name
       value: LevelEssentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099432505841, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099432505843, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099432505843, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099432505843, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099493056449, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099500583652, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099500583652, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099500583652, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535099785342337, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400535100072376718, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}
+      propertyPath: m_text
+      value: Continue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13008556d1e9e5943a628c79cb8176d1, type: 3}

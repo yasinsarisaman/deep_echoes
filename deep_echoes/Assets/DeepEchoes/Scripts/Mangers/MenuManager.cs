@@ -32,7 +32,7 @@ namespace DeepEchoes.Scripts.Mangers
                     _loseMenu.SetActive(true);
                     break;
                 case CompletionStates.CompletionState_LOSE_BY_OXYGEN:
-                    _loseState.text = "You lack of oxygen!";
+                    _loseState.text = "You are out of Oxygen!";
                     _loseMenu.SetActive(true);
                     break;
                 default:
