@@ -29,6 +29,7 @@ public class SoundOnOff : MonoBehaviour
                 _existingImage.sprite = _soundOnSprite;
                 _isSoundOn = true;
             }
+            AudioListener.volume = _isSoundOn ? 1.0f : 0.0f;
         }
         else
         {
