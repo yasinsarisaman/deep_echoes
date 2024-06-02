@@ -15,6 +15,20 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementInput;
     private static readonly int _isWalking = Animator.StringToHash("isWalking");
 
+    public static PlayerController Instance { get; private set; }
+
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
+    
     private void OnEnable()
     {
         EventBus<ApplyDamageEvent>.AddListener(OnApplyDamageEvent);
@@ -69,5 +83,19 @@ public class PlayerController : MonoBehaviour
         var movementInputMagnitude = movementInput.magnitude;
         animator.SetBool(_isWalking, movementInputMagnitude > 0);
         rbody.MovePosition(transform.position + transform.forward * (movementInputMagnitude * speed * Time.deltaTime));
+    }
+
+    public void PushBack(Vector3 target)
+    {
+        rbody.isKinematic = true;
+        var backVector = transform.position - target;
+        backVector.y = 0;
+        transform.DOJump( transform.position +backVector.normalized * 4f, 1.5f,1,0.2f);
+        Invoke(nameof(EnableRigid),0.2f);
+    }
+
+    private void EnableRigid()
+    {
+        rbody.isKinematic = false;
     }
 }
