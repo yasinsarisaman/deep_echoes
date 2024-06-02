@@ -17,10 +17,12 @@ namespace DeepEchoes.Scripts.Environment
         
         public void PlayColisionSound()
         {
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.Play();
-            }
+            AudioSource.PlayClipAtPoint(_audioSource.clip,Camera.main.transform.position);
+            
+            // if (!_audioSource.isPlaying)
+            // {
+            //     _audioSource.Play();
+            // }
         }
     }
 }
