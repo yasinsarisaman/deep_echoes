@@ -14,7 +14,7 @@ namespace DeepEchoes.Scripts.Mangers
 
         private void Start()
         {
-            coinText.text = "Wrenches: " + _currentWrenchesCount + " / " + _requiredWrenchesCount;
+            coinText.text = _currentWrenchesCount + " / " + _requiredWrenchesCount;
         }
 
         private void OnEnable()
@@ -30,7 +30,7 @@ namespace DeepEchoes.Scripts.Mangers
         private void OnResourceGainEvent(object sender, ResourceGainEvent e)
         {
             _currentWrenchesCount++;
-            coinText.text = "Wrenches: " + _currentWrenchesCount + " / " + _requiredWrenchesCount;
+            coinText.text = _currentWrenchesCount + " / " + _requiredWrenchesCount;
             if (_requiredWrenchesCount <= _currentWrenchesCount)
             {
                 EventBus<LevelCompletedEvent>.Emit(this, new LevelCompletedEvent(CompletionStates.CompletionState_WIN));
