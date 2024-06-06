@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 142225111396179028}
   - component: {fileID: 2967423143016850718}
   - component: {fileID: 1732722029778026890}
+  - component: {fileID: 1732722029778026884}
   - component: {fileID: 1732722029778026891}
-  - component: {fileID: 8732115114498601019}
   m_Layer: 0
   m_Name: Enemy Urchin
   m_TagString: Untagged
@@ -85,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1732722029778026884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173664775617826671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 257.801, y: 148.1917, z: 260.176}
+  m_Center: {x: 1.2994995, y: 54.890144, z: 0.06500244}
 --- !u!114 &1732722029778026891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,16 +112,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _value: 20
   _audioSource: {fileID: 0}
---- !u!135 &8732115114498601019
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9173664775617826671}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 130.088
-  m_Center: {x: 1.2994995, y: 54.890144, z: 0.06500244}

@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        EventBus<ApplyDamageEvent>.RemoveListener(OnApplyDamageEvent);
+        EventBus<ApplyDamageEvent>.AddListener(OnApplyDamageEvent);
     }
 
     private void OnApplyDamageEvent(object sender, ApplyDamageEvent e)

@@ -42,8 +42,8 @@ namespace DeepEchoes.Scripts.Mangers
         {
             if (levelIndexer > (SceneManager.sceneCountInBuildSettings -1))
             {
-                levelIndexer = 1;
-                GoNextLevel();
+                // if last level reload this level
+                RestartLevel();
             }
             SceneManager.LoadScene(levelIndexer);
         }
