@@ -28,7 +28,16 @@ namespace DeepEchoes.Scripts.Enemy
         [SerializeField] private Animator bossAnimator;
 
         private Transform _playerTransform;
-
+        
+        private void OnEnable()
+        {
+            EventBus<LevelCompletedEvent>.AddListener(OnLevelCompletedEvent);
+        }
+        private void OnDisable()
+        {
+            EventBus<LevelCompletedEvent>.RemoveListener(OnLevelCompletedEvent);
+        }
+        
         private void Start()
         {
             _playerTransform = PlayerController.Instance.transform;
@@ -71,6 +80,13 @@ namespace DeepEchoes.Scripts.Enemy
                 AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip,Camera.main.transform.position);
                  playerController.PushBack(transform.position);
             }
+        }
+        
+        private void OnLevelCompletedEvent(object sender, LevelCompletedEvent e)
+        {
+            bossAnimator.SetTrigger("Burrow");
+            StopAllCoroutines();
+            enabled = false;
         }
     }
 }
